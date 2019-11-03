@@ -24,9 +24,9 @@
 <h1>spoilers</h1>
 </a>
 <div class="header-links">
-<a href="https://sp0il3rs.github.io/write-ups/"><h2 class="header-link">CTF Writeups</h2></a>&nbsp;&nbsp;<a href="tools.html"><h2 class="header-link">CTF Tools</h2></a>
+<a href="https://sp0il3rs.github.io/write-ups/"><h2 class="header-link">CTF Writeups</h2></a>&nbsp;&nbsp;<!--<a href="tools.html"><h2 class="header-link">CTF Tools</h2></a>-->
 </div>
-<p><a href="#nactf">NACTF 2019</a></p>&nbsp;
+<p><a href="#nactf">NACTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#newbiectf">Newbie CTF 2019</a></p>
 </div>
 </header>
 <div class="container">
@@ -67,13 +67,33 @@
 <p>Finally, go to http://sesamestreet.web.2019.nactf.com/flag.php, we will get flag</p>
 </li>
 </ul>
+</section><br>
+<section id="main_content">
+<ul>
+<li>
+<h2 id="newbiectf">Newbie CTF - 2 Nov 2019</h2>
+<h2>Forensics</h2>
+<h3><u>Top Secret - 643</u></h3>
+<p>He stole the virtual machine file containing the top secret of the enemy country.</p>
+<p>However, due to the shortage of USB memory, I dumped only the memory that seemed to be the most important. </p>
+<p>What is the secret of an enemy country? (Fake Flag file exists.)</p>
+<p>https://drive.google.com/file/d/1eQMKWR8y-c2zPzqZFmncj0h8S7advhSm/view?usp=sharing</p>
+<h4>Solution</h4>
+<p>Download the given <a href="https://drive.google.com/file/d/1eQMKWR8y-c2zPzqZFmncj0h8S7advhSm/view?usp=sharing">File</a></p>
+<p>The file is VMEM which is a virtual memory (RAM of virtual device)</p>
+<p>To analyse VMEM files, we can use <a href="https://www.volatilityfoundation.org/26">Volatility tool</a> with this <a href="https://github.com/volatilityfoundation/volatility/wiki/Command-Reference">Reference</a></p>
+<p>But we can also solve this task by simply finding strings since we know the flag format </p>
+<p><code><i>strings "Windows 7 Enterprise K-b94208dd.vmem" | grep -oE "KorNewbie{.*}"</i></code></p>
+<br>
+</li>
+</ul>
 </section>
 </div>
 </div>
 <div class="pagination">
 <span class="page-item">«</span>
 <span class="page-item">1</span>
-<a href="" class="page-item">2</a>
+<!--<a href="" class="page-item">2</a>-->
 </div>
 <footer>
 <a href="https://sp0il3rs.github.io/sp0il3rs/">
