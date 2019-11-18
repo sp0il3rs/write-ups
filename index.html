@@ -114,6 +114,41 @@
 <p>We can observe the page redirects several times</p>
 <p>Analyse the pages at Burp - Proxy - HTTP History, we can see the redirected pages have single charaters R, S, %7B, 4, etc. which is in our RI{} flag format</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/burp.png" width="980px" height="720px"></p>
+<h3 id="buckets"><u>Buckets of Fun - 100</u></h3>
+<p>http://bucketsoffun-ctf.s3-website-us-east-1.amazonaws.com/</p>
+<h4>Solution</h4>
+<p>Open the given <a href="http://bucketsoffun-ctf.s3-website-us-east-1.amazonaws.com/">Link</a></p>
+<p>It’s clear that the challenge has something to do with aws s3 buckets as per challage name & URL</p>
+<p>May be the aws bucket has flag file</p>
+<p>Open the base aws s3 link at <a href="http://bucketsoffun-ctf.s3.amazonaws.com/">http://bucketsoffun-ctf.s3.amazonaws.com/</a></p>
+<p>Here we can observe the following source code</p>
+<code>
+<em>
+	<ListBucketResult><br>
+	<Name>bucketsoffun-ctf</Name><br>
+	<Prefix/><br>
+	<Marker/><br>
+	<MaxKeys>1000</MaxKeys><br>
+	<IsTruncated>false</IsTruncated><br>
+	<Contents><br>
+	<Key>index.html</Key><br>
+	<LastModified>2019-11-18T14:05:20.000Z</LastModified><br>
+	<ETag>"b271e7783d480770f61670d6b234e1ed"</ETag><br>
+	<Size>630</Size><br>
+	<StorageClass>STANDARD</StorageClass><br>
+	</Contents><br>
+	<Contents><br>
+	<Key>youfoundme-asd897kjm.txt</Key><br>
+	<LastModified>2019-11-18T14:05:20.000Z</LastModified><br>
+	<ETag>"a920cc3c8aaa05c1afe96a78d0adbcda"</ETag><br>
+	<Size>25</Size><br>
+	<StorageClass>STANDARD</StorageClass><br>
+	</Contents><br>
+	</ListBucketResult><br>
+</em>
+</code>
+<p>There is a file <strong>youfoundme-asd897kjm.txt</strong> which has required flag</p>
+</li>
 <br>
 </li>
 </ul>
