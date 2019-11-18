@@ -26,14 +26,14 @@
 <div class="header-links">
 <a href="https://sp0il3rs.github.io/write-ups/"><h2 class="header-link">CTF Writeups</h2></a>&nbsp;&nbsp;<!--<a href="tools.html"><h2 class="header-link">CTF Tools</h2></a>-->
 </div>
-<p><a href="#nactf">NACTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#newbiectf">Newbie CTF 2019</a></p>
+<p><a href="#nactf">NACTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#newbiectf">Newbie CTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#ritsecctf">RITSEC CTF 2019</a></p>
 </div>
 </header>
 <div class="container">
 <section id="main_content">
 <ul>
 <li>
-<h2 id="nactf">NACTF - 17 Sep 2019</h2>
+<h2 id="nactf">NACTF - Sep 2019</h2>
 <h2>Web</h2>
 <h3><u>Pink Panther - 50</u></h3>
 <p>Rahul loves the Pink Panther. He even made this website: http://pinkpanther.web.2019.nactf.com</p>
@@ -71,7 +71,7 @@
 <section id="main_content">
 <ul>
 <li>
-<h2 id="newbiectf">Newbie CTF - l Nov 2019</h2>
+<h2 id="newbiectf">Newbie CTF - Nov 2019</h2>
 <h2>Forensics</h2>
 <h3 id="topsecret"><u>Top Secret - 643</u></h3>
 <p>He stole the virtual machine file containing the top secret of the enemy country.</p>
@@ -100,7 +100,24 @@
 </li>
 </ul>
 </section>
-</div>
+<section id="main_content">
+<ul>
+<li>
+<h2 id="ritsecctf">RITSEC CTF - Nov 2019</h2>
+<h2>Web</h2>
+<h3 id="misdirection"><u>Misdirection - 100</u></h3>
+<p>Looks like someone gave you the wrong directions!</p>
+<p>http://ctfchallenges.ritsec.club:5000/</p>
+<p>Flag format is RS{ }</p>
+<h4>Solution</h4>
+<p>Open the given <a href="http://ctfchallenges.ritsec.club:5000/">Link</a> in Burp proxy</p>
+<p>We can observe the page redirects several times</p>
+<p>Analyse the pages at Burp - Proxy - HTTP History, we can see the redirected pages have single charaters R, S, %7B, 4, etc. which is in our RI{} flag format</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/burp.png" width="980px" height="720px"></p>
+<br>
+</li>
+</ul>
+</section>
 </div>
 <div class="pagination">
 <!--<span class="page-item">«</span>-->
