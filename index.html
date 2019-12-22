@@ -213,8 +213,8 @@
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/r2breakmain.PNG" width="650px" height="400px"></p>
 <p>Now Seek to <em>sym.gimme_flag</em> function</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/seek.PNG" width="650px" height="400px"></p>
-<p>Run the binary using <em>dc</em> command it hits the break point at main now </p>
-<p>jump to function <em>sym.gimme_flag</em> using command <em>dr rip=0x55680b9936fa</em> (Starting address of sym.gimme_flag function)</p>
+<p>Run the binary using <em>dc</em> command it hits the break point at main</p>
+<p>Now jump to function <em>sym.gimme_flag</em> using command <em>dr rip=0x55680b9936fa</em> (Starting address of sym.gimme_flag function)</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/jumptoflag.PNG" width="650px" height="100px"></p>
 <p>If we analyse carefully there is another jump to make inorder to get the flag</p>
 <p>In <em>sym.gimme_flag</em> function there is <em>je 0x55680b993766</em> which doesnot take the jump</p>
