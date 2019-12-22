@@ -202,26 +202,28 @@
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/jump.PNG" width="360px" height="360px"></p>
 <p>The <a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/jump">core</a> file is an ELF executable</p>
 <h4>Solution</h4>
-<p>Level up, no strings this time</p>
+<p><em>Level up, no strings this time</em></p>
 <p>Run the file we get a fake flag</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/jumprunfake.PNG" width="550px" height="50px"></p>
 <p>Lets start analysing the file using radare2</p>
-<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/r2.PNG" width="500px" height="500px"></p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/r2.PNG" width="600px" height="600px"></p>
 <p>There is a function called <em>sym.gimme_flag</em> but that function is not included in the main function</p>
 <p>So we have to make a jump to that <em>sym.gimme_flag</em> function to obtain the flag</p>
-<p>Lets set a break point at starting of main</p>
+<p>Let's start by setting a break point at starting of main</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/r2breakmain.PNG" width="650px" height="400px"></p>
 <p>Now Seek to <em>sym.gimme_flag</em> function</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/seek.PNG" width="650px" height="400px"></p>
-<p>Run the binary using <em>dc</em> command it hits the break point at main now jump to function <em>sym.gimme_flag</em> using command <em>dr rip=0x55680b9936fa</em> (Starting address of function sym.gimme_flag)</p>
+<p>Run the binary using <em>dc</em> command it hits the break point at main now </p>
+<p>jump to function <em>sym.gimme_flag</em> using command <em>dr rip=0x55680b9936fa</em> (Starting address of sym.gimme_flag function)</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/jumptoflag.PNG" width="650px" height="100px"></p>
 <p>If we analyse carefully there is another jump to make inorder to get the flag</p>
 <p>In <em>sym.gimme_flag</em> function there is <em>je 0x55680b993766</em> which doesnot take the jump</p>
-<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/noje.PNG" width="700px" height="300px"></p>
-<p>So set another break point at <em>je 0x55680b993766</em> and run the binary again</p>
-<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/db43.PNG" width="300px" height="200px"></p>
-<p>After hitting the break point again jump to 0x55680b993766 address</p>
-<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/last.PNG" width="500px" height="300px"></p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/noje.PNG" width="800px" height="200px"></p>
+<p>So set another break point at <em>je 0x55680b993766</em> which as address <em>0x55680b99374e</em></p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/db43.PNG" width="800px" height="60px"></p>
+<p>Run the binary again using <em>dc</em> it hits the break point again, now jump to 0x55680b993766 address usign command <em>dr rip=0x55680b993766</em></p>
+<p>Again run <em>dc</em> to get the flag</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/last.PNG" width="700px" height="300px"></p>
 <br>
 </li>
 </ul>
