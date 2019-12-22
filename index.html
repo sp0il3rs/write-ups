@@ -113,7 +113,7 @@
 <p>Open the given <a href="http://ctfchallenges.ritsec.club:5000/">Link</a> in Burp proxy</p>
 <p>We can observe the page redirects several times</p>
 <p>Analyse the pages at Burp - Proxy - HTTP History, we can see the redirected pages have single charaters R, S, %7B, 4, etc. which is in our RI{} flag format</p>
-<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/burp.png" width="980px" height="720px"></p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/burp.png" width="980px" height="720px"></p>
 <h3 id="buckets"><u>Buckets of Fun - 100</u></h3>
 <p>http://bucketsoffun-ctf.s3-website-us-east-1.amazonaws.com/</p>
 <h4>Solution</h4>
@@ -149,6 +149,33 @@
 </code>
 <p>There is a file <strong>youfoundme-asd897kjm.txt</strong> which has required flag</p>
 </li>
+<br>
+</ul>
+</section>
+<section id="main_content">
+<ul>
+<li>
+<h2 id="utcctf">UTC CTF - Dec 2019</h2>
+<h2>Misc</h2>
+<h3 id="ezip"><u>ezip - 31</u></h3>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/ezip.PNG" width="360px" height="360px"></p>
+<p>Given two files <a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/flag.zip">flag.zip</a> and <a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/cat.png">cat.png</a></p>
+<h4>Solution</h4>
+<p>Analyse both the file</p>
+<p>flag.zip is password protected and we need to crack the password by using tools such as fcrackzip</p>
+<p>But we have another file cat.png, by analyzing this image using exiftool we can find flag.zip's password</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/cat.PNG" width="360px" height="300px"></p>
+<p>Use the password to unzip the flag.zip and we get flag.txt which contains our required flag</p>
+<br>
+<h3 id="optics1"><u>Optics 1 - 42</u></h3>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/optics.PNG" width="360px" height="360px"></p>
+<p>Given an image <a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/challange1.png">Challange1.png</a> but we there is an error opening the image</p>
+<h4>Solution</h4>
+<p>Analyse the image header using XXD in linux or any other Hexeditor</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/xxd.PNG" width="360px" height="300px"></p>
+<p>The png header is .PNG but here it is .LOL</p>
+<p>Edit and change the .LOL header to .PNG by using Hexeditor and save the image</p>
+<p>Now try to open the saved images we get a QR code scan it and get the flag</p>
 <br>
 </li>
 </ul>
