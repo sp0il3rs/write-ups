@@ -201,7 +201,7 @@
 <br>
 <h3 id="jump"><u>Jump - 70</u></h3>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/jump.PNG" width="360px" height="360px"></p>
-<p>The <a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/jump">core</a> file is an ELF executable</p>
+<p>The <a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/jump">jump</a> file is an ELF executable</p>
 <h4>Solution</h4>
 <p><em>Level up, no strings this time</em></p>
 <p>Run the file we get a fake flag</p>
@@ -222,7 +222,7 @@
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/noje.PNG" width="800px" height="200px"></p>
 <p>So set another break point at <em>je 0x55680b993766</em> which as address <em>0x55680b99374e</em></p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/db43.PNG" width="800px" height="60px"></p>
-<p>Run the binary again using <em>dc</em> it hits the break point again, now jump to 0x55680b993766 address usign command <em>dr rip=0x55680b993766</em></p>
+<p>Run the binary again using <em>dc</em> it hits the break point again, now jump to 0x55680b993766 address using command <em>dr rip=0x55680b993766</em></p>
 <p>Again run <em>dc</em> to get the flag</p>
 <p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/last.PNG" width="700px" height="300px"></p>
 <br>
