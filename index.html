@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="gr__ashishchaudhary_in"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html class="gr__ashishchaudhary_in">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="generator" content="Team Sp0il3rs">
 <title>Spoilers | CTF Writeups</title>
@@ -15,8 +16,30 @@
 <link rel="next" href="https://sp0il3rs.github.io/sp0il3rs/">
 <script type="application/ld+json">
 {"name":"Spoilers | CTF Writeups","description":"A CTF Blog from Team Sp0il3rs","author":{"@type":"Team","name":"sp0il3rs"},"@type":"WebSite","url":"https://sp0il3rs.github.io/sp0il3rs/","image":null,"publisher":null,"headline":"Team sp0il3rs","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<style>
+    #popup {
+            display:none;
+            position:absolute;
+            margin:0 auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+    }
+</style>
 </head>
 <body data-gr-c-s-loaded="true">
+<div id="popup">
+
+    <!-- and here comes the image -->
+    <img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/christmas.jpg" alt="popup">
+
+        <!-- Now this is the button which closes the popup-->
+        <button id="close">Thank You</button>
+
+        <!-- and finally we close the POPUP FRAME-->
+        <!-- everything on it will show up within the popup so you can add more things not just an image -->
+</div>
 <div id="wrapper">
 <header>
 <div>
@@ -229,20 +252,7 @@
 </li>
 </ul>
 </section>
-<section id="main_content">
-<ul>
-<li>
-<h2 id="kafctf">Kipod After Free CTF - Dec 2019</h2>
-<h2>Web</h2>
-<h3 id="cookieclicker"><u>Cookie Clicker - 25</u></h3>
 
-<h4>Solution</h4>
-
-<br>
-
-</li>
-</ul>
-</section>
 </div>
 <div class="pagination">
 <!--<span class="page-item">«</span>-->
@@ -256,4 +266,22 @@
 <span>© 2019</span>
 </a>
 </footer>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+//with this first line we're saying: "when the page loads (document is ready) run the following script"
+$(document).ready(function () {
+
+    //select the POPUP FRAME and show it
+    $("#popup").hide().fadeIn(1000);
+
+    //close the POPUP if the button with id="close" is clicked
+    $("#close").on("click", function (e) {
+        e.preventDefault();
+        $("#popup").fadeOut(1000);
+    });
+
+});
+</script>
+
 </body></html>
