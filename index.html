@@ -18,13 +18,13 @@
 {"name":"Spoilers | CTF Writeups","description":"A CTF Blog from Team Sp0il3rs","author":{"@type":"Team","name":"sp0il3rs"},"@type":"WebSite","url":"https://sp0il3rs.github.io/sp0il3rs/","image":null,"publisher":null,"headline":"Team sp0il3rs","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
 <style>
 #popup {
-            display:none;
-            position:absolute;
-            margin:0 auto;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
+		display:none;
+		position:absolute;
+		margin:0 auto;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 9999;
     }
 </style>
 </head>
@@ -50,7 +50,7 @@
 <div class="header-links">
 <a href="https://sp0il3rs.github.io/write-ups/"><h2 class="header-link">CTF Writeups</h2></a>&nbsp;&nbsp;<!--<a href="tools.html"><h2 class="header-link">CTF Tools</h2></a>-->
 </div>
-<p><a href="#nactf">NACTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#newbiectf">Newbie CTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#ritsecctf">RITSEC CTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#utcctf">UTC CTF 2019</a></p>
+<p><a href="#nactf">NACTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#newbiectf">Newbie CTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#ritsecctf">RITSEC CTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#utcctf">UTC CTF 2019</a>&nbsp;&nbsp;&nbsp;<a href="#kafctf">KAF CTF 	2019</a></p>
 </div>
 </header>
 <div class="container">
@@ -252,7 +252,52 @@
 </li>
 </ul>
 </section>
-
+<section id="main_content">
+<ul>
+<li>
+<h2 id="kafctf">Kipod After Free CTF - Dec 2019</h2>
+<h2>Web</h2>
+<h3 id="cookieclicker"><u>Cookie Clicker - 25</u></h3>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/cookie.PNG" width="460px" height="360px"></p>
+<h4>Solution</h4>
+<p>Go to the given link and sign in with a username</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/click.PNG" width="460px" height="360px"><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/spoil.PNG" width="460px" height="360px"></p>
+<p>If we click <code>1000000</code> times we get the flag; LOL</p>
+<p>Challange Tags: Cookie, JWT, rock says we have to crack the JWT cookie using rockyou.txt as wordlist</p>
+<p>Copy the cookie from browser<p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/jwtcookie.PNG" width="560px" height="360px"></p>
+<p>Go to <a href="https://jwt.io/">www.jwt.io</a> debugger and analyse the JWT cookie</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/JWTIO.PNG" width="560px" height="360px"></p>
+<p>To obtain flag we have to change the "clickCounter" value from "0" to "1000000", to do this we have to first crack the JWT secret key to get valid JWT signature</p>
+<p>We can crack JWT secret key using John the Ripper, but first we have to convert JWT to a valid John the Ripper hash</p>
+<p>Go to <a href="https://github.com/MarcoLugo/jwt2jtr">link</a> download the file jwt2jtr.py</p>
+<p>Using command <em>python jwt2jtr.py  eyJhbGciOiJIUzI1NiIsInR5cCI6I...........Z6Rttqj40k6oeGrPVXm0</em> convert JWT to John the Ripper hash<p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/jwttojhon.PNG" width="960px" height="260px"></p>
+<p>Copy the generated hash to a file for example: jwt.hash and crack it with using John the Ripper using command <em>john jwt.hash --wordlist=rockyou.txt</em></p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/johncrack.PNG" width="960px" height="360px"></p>
+<p>Now generate new JWT token from <a hre="https://jwt.io/">jwt.io</a> using cracked secret key <em>mypinkipod</em> by changing clickCounter value from <code>0</code> to <code>1000000</code>, if cookie expired change the <em>"exp": </em> value also</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/cracked.PNG" width="860px" height="460px"></p>
+<p>Finally copy and paste the obtained JWT cookie from <a href="https://jwt.io/">JWT.io</a> to our challange website and refresh the page.</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/flagcookie.PNG" width="560px" height="360px"></p>
+<p>Voila! there is our flag..!</p>
+<br>
+<h2>Misc</h2>
+<h3 id="tupper"><u>Tupper - 5</u></h3>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/tupper.PNG" width="460px" height="360px"></p>
+<p><a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/k.txt">K Value</a></p>
+<p>A simple challange, just goto <a href="https://keelyhill.github.io/tuppers-formula/">link</a> and Copy/Paste the K value</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/k.PNG" width="760px" height="260px"></p>
+<br>
+<h3 id="dinary"><u>Dinary - 15</u></h3>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/dinary.PNG" width="460px" height="360px"></p>
+<p>The <a href="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/files/dinary.png">dinary</a> file is a valid PNG, but by analysing the png with binwalk there is some Zlib compressed data</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/dinart1.PNG" width="760px" height="260px"></p>
+<p>Lets use zsteg to extract the zlib compressed data</p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/dinarysol.PNG" width="1060px" height="70px"></p>
+<p>And we got the flag !</p>
+</li>
+</ul>
+</section>
 </div>
 <div class="pagination">
 <!--<span class="page-item">«</span>-->
