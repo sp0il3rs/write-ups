@@ -29,17 +29,6 @@
 </style>
 </head>
 <body data-gr-c-s-loaded="true">
-<div id="popup">
-
-    <!-- and here comes the image -->
-    <img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/newyear.gif" alt="popup" width="560px" height="420px">
-
-        <!-- Now this is the button which closes the popup-->
-        <button id="close"><center>Thank You</center></button>
-
-        <!-- and finally we close the POPUP FRAME-->
-        <!-- everything on it will show up within the popup so you can add more things not just an image -->
-</div>
 <div id="wrapper">
 <header>
 <div>
@@ -137,7 +126,8 @@
 <p>Open the given <a href="http://ctfchallenges.ritsec.club:5000/">Link</a> in Burp proxy</p>
 <p>We can observe the page redirects several times</p>
 <p>Analyse the pages at Burp - Proxy - HTTP History, we can see the redirected pages have single charaters R, S, %7B, 4, etc. which is in our RI{} flag format</p>
-<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/images/burp.png" width="980px" height="720px"></p>
+<p><img src="https://raw.githubusercontent.com/sp0il3rs/write-ups/master/
+	s/burp.png" width="980px" height="720px"></p>
 <h3 id="buckets"><u>Buckets of Fun - 100</u></h3>
 <p>http://bucketsoffun-ctf.s3-website-us-east-1.amazonaws.com/</p>
 <h4>Solution</h4>
@@ -312,20 +302,4 @@
 </a>
 </footer>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-//with this first line we're saying: "when the page loads (document is ready) run the following script"
-$(document).ready(function () {
-
-    //select the POPUP FRAME and show it
-    $("#popup").hide().fadeIn(1000);
-
-    //close the POPUP if the button with id="close" is clicked
-    $("#close").on("click", function (e) {
-        e.preventDefault();
-        $("#popup").fadeOut(1000);
-    });
-
-});
-</script>
-
 </body></html>
